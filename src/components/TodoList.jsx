@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import { Todo } from "./Todo";
+import { AddTodoContext } from "../Context/AddTodo";
 
 export const TodoList = () => {
-  const temp = [1, 2, 3, 4, 5];
+  const [list, setList] = useContext(AddTodoContext);
   return (
     <div>
-      {temp.map((_, index) => {
-        return <Todo key={index} />;
+      {list.map((list, index) => {
+        return <Todo key={index} task={list} />;
       })}
     </div>
   );

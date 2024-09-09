@@ -1,0 +1,11 @@
+First the call comes to server.js
+
+Then it sees listen on app then it runs on specific server
+
+if u click type on specific url (/api/v1/task) ,then flow will be 
+-> app.js ,it will run all the middleware in there
+-> then it will map to the router middleware attach to it (TaskRoutes) in app.js 
+-> it will go to TaskRoutes in router file
+-> then it will check the url (/) then it will check the method on it (i.e get call)
+-> then will go to controller attached to get in controller file i.e TaskController
+-> it will call the function  map to it

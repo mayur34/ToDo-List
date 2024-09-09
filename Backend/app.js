@@ -1,12 +1,24 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 
 const port = 4000;
 
+//Middleware
+app.use(morgan("dev"));
+
 app.use(express.json());
 
+//Implemented local MiddleWare for practice
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
+//Functions
 const getAllTask = (req, res) => {
   res.status(200).json({
+    requesAt: req.requestTime,
     status: "success",
     data: "temp",
   });
@@ -53,9 +65,11 @@ const getTask = (req, res) => {
 
 // app.delete("/api/v1/task/:id", deleteTask);
 
+//Routes
 app.route("/api/v1/task").get(getAllTask).post(createTask);
 app.route("/api/v1/task/:id").get(getTask).patch(updateTask).delete(deleteTask);
 
+//Server
 app.listen(port, () => {
   console.log(`Listening to port ${port}`);
 });

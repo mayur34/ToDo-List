@@ -55,6 +55,47 @@ const getTask = (req, res) => {
   });
 };
 
+/*--------User controller--------*/
+
+const getAllUsers = (req, res) => {
+  res.status(200).json({
+    requesAt: req.requestTime,
+    status: "success",
+    data: "temp",
+  });
+};
+
+const createUser = (req, res) => {
+  console.log(req.body);
+  //Send Id
+
+  res.send("Done");
+};
+
+const updateUser = (req, res) => {
+  console.log(req.body);
+  //will update a specific property
+  res.send("Done");
+};
+
+const deleteUser = (req, res) => {
+  // console.log(req.body);
+  //will update a specific property
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
+};
+
+const getUser = (req, res) => {
+  console.log(req.body.id);
+  //will update a specific property
+  res.status(200).json({
+    status: "success",
+    data: "1 data",
+  });
+};
+
 // app.get("/api/v1/task", getAllTask);
 
 // app.get("/api/v1/task/:id", getTask);
@@ -66,8 +107,13 @@ const getTask = (req, res) => {
 // app.delete("/api/v1/task/:id", deleteTask);
 
 //Routes
+//Task Route
 app.route("/api/v1/task").get(getAllTask).post(createTask);
 app.route("/api/v1/task/:id").get(getTask).patch(updateTask).delete(deleteTask);
+
+//User Route
+app.route("/api/v1/user").get(getAllUsers).post(createUser);
+app.route("/api/v1/user/:id").get(getUser).patch(updateUser).delete(deleteUser);
 
 //Server
 app.listen(port, () => {

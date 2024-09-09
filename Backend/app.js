@@ -5,8 +5,15 @@ const port = 4000;
 
 app.use(express.json());
 
+//Implemented MiddleWare for practice
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
 const getAllTask = (req, res) => {
   res.status(200).json({
+    requesAt: req.requestTime,
     status: "success",
     data: "temp",
   });

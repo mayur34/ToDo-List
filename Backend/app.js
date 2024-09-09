@@ -107,13 +107,23 @@ const getUser = (req, res) => {
 // app.delete("/api/v1/task/:id", deleteTask);
 
 //Routes
+
+//Adding express routes
+const TaskRoutes = express.Router();
+const UserRoutes = express.Router();
+
 //Task Route
-app.route("/api/v1/task").get(getAllTask).post(createTask);
-app.route("/api/v1/task/:id").get(getTask).patch(updateTask).delete(deleteTask);
+TaskRoutes.route("/").get(getAllTask).post(createTask);
+TaskRoutes.route("/:id").get(getTask).patch(updateTask).delete(deleteTask);
 
 //User Route
-app.route("/api/v1/user").get(getAllUsers).post(createUser);
-app.route("/api/v1/user/:id").get(getUser).patch(updateUser).delete(deleteUser);
+UserRoutes.route("/").get(getAllUsers).post(createUser);
+UserRoutes.route("/:id").get(getUser).patch(updateUser).delete(deleteUser);
+
+//(Connecting routes via middleware)
+//first as it sees this url /api/v1/task it will run TaskRoutes middleware ,as TaskRoutes is also a middleware
+app.use("/api/v1/task", TaskRoutes);
+app.use("/api/v1/user", UserRoutes);
 
 //Server
 app.listen(port, () => {

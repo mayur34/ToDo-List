@@ -1,15 +1,26 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+
+
 const TaskRoutes = require("./routes/TaskRoutes");
 const UserRoutes = require("./routes/UserRoutes");
 
 const port = 4000;
 
+//environment varaible check inbuilt in express
+// console.log(app.get('env'))
+
+//inbulilt function in node js ,adding env file data into process.env function
+console.log(process.env)
+
 //Middleware
 app.use(morgan("dev"));
 
 app.use(express.json());
+
+//static route for assests (http://localhost:4000/images/check.png)
+app.use(express.static(`${__dirname}/public`))
 
 //Implemented local MiddleWare for practice
 app.use((req, res, next) => {

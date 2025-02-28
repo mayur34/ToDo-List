@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
-import { AddTodoContext } from "../Context/AddTodo";
+// import { AddTodoContext } from "../Context/AddTodo";
 import { v4 } from "uuid";
 
 export const TodoInput = () => {
   const [task, setTask] = useState("");
-  const [list, setList] = useContext(AddTodoContext);
+  // const [list, setList] = useContext(AddTodoContext);
 
   const addTodo = () => {
-    setList([...list, { id: v4(), todo: task }]);
+    // setList([...list, { id: v4(), todo: task }]);
     setTask("");
   };
   return (

@@ -13,6 +13,11 @@
     align-items: center;
 }
 
+input[type="checkbox"] {
+  width: 15px;
+  height: 25px;
+}
+
 
 .modal-header{
   width: 100%;

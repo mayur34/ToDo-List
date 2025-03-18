@@ -12,12 +12,9 @@ export const todoSlice = createSlice({
         addTodoTask:(state,action) =>{
             state.task.push(action.payload)
         },
-        editTodoTask:(state,action) =>{
-            
-            const { taskVal, modalText } = action.payload; 
-            console.log(taskVal,'2334');
-            
-           const prp = state.task.find(task=>taskVal.includes(task))
+        editTodoTask:(state,action) =>{            
+            const { taskVal, modalText } = action.payload;             
+            const prp = state.task.find(task=>taskVal.includes(task))
                if(prp){
                 state.task=state.task.filter(task=> task!=prp)
                 state.task.push(modalText)
@@ -26,13 +23,11 @@ export const todoSlice = createSlice({
         removeTodoTask:(state,action)=>{
             const taskVal = action.payload
             const prp = state.task.find(task=>taskVal.includes(task))
-               console.log(prp,'wpw')
                if(prp){
                 state.task=state.task.filter(task=> task!=prp)
                }
         },
         showTodoTask:(state,action)=>{
-            console.log(action.payload,'momos')
            state.editTask = action.payload
         }
     }

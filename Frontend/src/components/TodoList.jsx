@@ -1,14 +1,14 @@
-// import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Todo } from "./Todo";
-// import { AddTodoContext } from "../Context/AddTodo";
 
 export const TodoList = () => {
-  // const [list, setList] = useContext(AddTodoContext);
+  const list = useSelector(state=>state.todo.task)
+  // console.log(list,'wow122')
   return (
     <div>
-      {/* {list.map((list, index) => {
-        return <Todo key={index} task={list} />;
-      })} */}
+      {list.length && list.map((tasklist, index) => {
+        return <Todo key={index} task={tasklist} />;
+      })}
     </div>
   );
 };

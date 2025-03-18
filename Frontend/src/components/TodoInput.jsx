@@ -1,14 +1,17 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 // import { AddTodoContext } from "../Context/AddTodo";
-import { v4 } from "uuid";
+  import {useDispatch} from 'react-redux'
+  import { addTodoTask } from "../redux/Slice/slice";
 
 export const TodoInput = () => {
-  const [task, setTask] = useState("");
-  // const [list, setList] = useContext(AddTodoContext);
+  const [task, setTask] = useState('');
+  const dispatch = useDispatch()
 
   const addTodo = () => {
-    // setList([...list, { id: v4(), todo: task }]);
+    if(task){
+    dispatch(addTodoTask(task))
     setTask("");
+    }
   };
   return (
     <div className="input-container">

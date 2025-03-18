@@ -1,0 +1,32 @@
+.modal-container{
+    background: aqua;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 0px;
+    font-size: 15px;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    align-items: center;
+}
+
+
+.modal-header{
+  width: 100%;
+    background-color: #197f7f;
+    margin-top: 0px;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px 0px;
+    text-align: center;
+  
+}
+.modal-input{
+ width: 95%;
+ height: 100px;
+ border-radius: 20px;
+ padding: 10px;
+}
